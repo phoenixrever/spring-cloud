@@ -9,6 +9,17 @@ spring:
     url: jdbc:mysql://localhost:3306/springcloud?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: root
     password: '159629zxc'
+  profiles:
+    active: home
 mybatis:
   type-aliases-package: com.phoenixhell.springcloud.entities
   mapper-locations:  classpath:mapper/*.xml
+eureka:
+  client:
+    #将自己注册进Eureka 默认true
+    register-with-eureka: true
+    #是否从EurekaServer抓取已有的信息 默认为true，单节点无所谓，
+    #集群必须设置为true才能配合ribbon使用负载均衡
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka

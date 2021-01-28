@@ -4,7 +4,6 @@ import com.phoenixhell.springcloud.entities.CommonResult;
 import com.phoenixhell.springcloud.entities.Payment;
 import com.phoenixhell.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +21,6 @@ public class PaymentController {
     public CommonResult<Payment> create(@PathVariable("serial")String serial){
         Payment payment = new Payment(null, serial);
         int result = paymentService.create(payment);
-        log.error("插入结果"+result);
         if(result>0){
             return new CommonResult<>(200, "create ok", payment);
         }else{
@@ -35,8 +33,8 @@ public class PaymentController {
     @PostMapping(value = "/payment/create")
     //resTemplate 传来的数据是josn格式要用@RequestBody
     public CommonResult<Payment> create(@RequestBody Payment payment){
+        log.error(payment.toString()+"-------------");
         int result = paymentService.create(payment);
-        log.error("插入结果"+result);
         if(result>0){
             return new CommonResult<>(200, "create ok", payment);
         }else{
@@ -48,7 +46,6 @@ public class PaymentController {
     @GetMapping("/payment/{id}")
     public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id){
         Payment payment = paymentService.getPaymentById(id);
-        log.error("查询结果"+payment);
         if(payment!=null){
             return new CommonResult<>(200, "get ok",payment);
         }else{
