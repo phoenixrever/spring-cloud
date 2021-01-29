@@ -9,8 +9,8 @@ spring:
     url: jdbc:mysql://localhost:3306/springcloud?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: root
     password: '159629zxc'
-  profiles:
-    active: home
+#  profiles:
+#    active: home
 mybatis:
   type-aliases-package: com.phoenixhell.springcloud.entities
   mapper-locations:  classpath:mapper/*.xml
@@ -22,4 +22,12 @@ eureka:
     #集群必须设置为true才能配合ribbon使用负载均衡
     fetch-registry: true
     service-url:
-      defaultZone: http://localhost:7001/eureka
+      #必须是这个名字后面必须要加/Eureka
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+  instance:
+    instance-id: payment8001    #服务名称
+    prefer-ip-address: true     #显示服务ip地址
+    #eureka客户端向服务端发送心跳的时间间隔单位为妙(默认30秒)
+    lease-renewal-interval-in-seconds: 1
+    #eureka服务端在收到最后一次心跳后等待侍时间上限单位为妙(默认90超时将剔除服务)
+    lease-expiration-duration-in-seconds: 2

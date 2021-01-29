@@ -1,5 +1,6 @@
 package com.phoenixhell.springcloud.config;
 
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
@@ -12,6 +13,7 @@ import org.springframework.web.client.RestTemplate;
 public class ApplicationContextConfig {
 
     @Bean
+    @LoadBalanced  //赋予restTemplate开服务端口启负载均衡 端口交替出现
     public RestTemplate restTemplate(){
         return new RestTemplate();
     }
