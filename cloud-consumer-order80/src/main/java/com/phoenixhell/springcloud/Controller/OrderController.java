@@ -3,6 +3,7 @@ package com.phoenixhell.springcloud.Controller;
 import com.phoenixhell.springcloud.entities.CommonResult;
 import com.phoenixhell.springcloud.entities.Payment;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -24,7 +25,7 @@ public class OrderController {
 //        return restTemplate.postForObject(PAYMENT_URL + "/payment/create/"+serial, null, CommonResult.class);
 //    }
 
-    @GetMapping("consumer/payment/create")
+    @GetMapping("/consumer/payment/create")
     //自动封装参数为payment 属性要和name一一对应
     //GET请求中，因为没有HttpEntity，所以@RequestBody并不适用。
     //form-data、x-www-form-urlencoded：不可以用@RequestBody；可以用@RequestParam。
@@ -35,8 +36,23 @@ public class OrderController {
         return restTemplate.postForObject(PAYMENT_URL + "/payment/create", payment, CommonResult.class);
 
     }
-    @GetMapping("consumer/payment/{id}")
+
+    @GetMapping("/consumer/paymentEntity/create")
+//  modelanview cover自动提取body方法封装的数据到页面 不一样要返回  CommonResult类型
+    public ResponseEntity<CommonResult> createByEntity(Payment payment){
+        ResponseEntity<CommonResult> commonResultResponseEntity = restTemplate.postForEntity(PAYMENT_URL + "/payment/create", payment, CommonResult.class);
+        return commonResultResponseEntity;
+
+    }
+    @GetMapping("/consumer/payment/{id}")
     public CommonResult<Payment> create(@PathVariable("id") Long id){
         return restTemplate.getForObject(PAYMENT_URL+"/payment/"+id,CommonResult.class);
+    }
+
+    @GetMapping("/consumer/paymentEntity/{id}")
+    public ResponseEntity<CommonResult> getEntityById(@PathVariable("id") Long id){
+        ResponseEntity<CommonResult> entity = restTemplate.getForEntity(PAYMENT_URL + "/payment/" + id, CommonResult.class);
+        System.out.println(entity.toString());
+        return entity;
     }
 }

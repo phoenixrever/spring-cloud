@@ -24,3 +24,5 @@ eureka:
     service-url:
       #必须是这个名字后面必须要加/Eureka
       defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+  instance:
+    instance-id: payment8002
