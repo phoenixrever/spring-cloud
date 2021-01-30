@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.phoenixhell.springcloud</groupId>
+    <groupId>springcloud</groupId>
     <artifactId>spring-cloud</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -19,6 +19,9 @@
         <module>cloud-provider-payment8002</module>
         <module>cloud-zookeeper-payment8004</module>
         <module>cloud-consumer-zookeeper-order80</module>
+        <module>test</module>
+        <module>cloud-consul-payment8006</module>
+        <module>cloud-consul-order80</module>
     </modules>
 
     <!-- 统一管理jar包版本 -->

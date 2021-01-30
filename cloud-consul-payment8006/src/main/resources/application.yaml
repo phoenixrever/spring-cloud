@@ -1,0 +1,16 @@
+server:
+  port: 8006
+spring:
+  application:
+    name: cloud-consul-payment
+  cloud:
+    consul:
+      host: 192.168.1.100
+      port: 8500
+      discovery:
+        service-name: ${spring.application.name}
+#        prefer-ip-address: true
+        #下面2个都要写 心跳发送信号 localhost检查health  不然check就是大红X
+        hostname: localhost
+        heartbeat:
+          enabled: true
