@@ -1,0 +1,4 @@
+com\phoenixhell\spingcloud\Controller\HystrixPaymentController.class
+com\phoenixhell\spingcloud\MainHystrixPayment8001.class
+com\phoenixhell\spingcloud\service\HystrixPaymentService.class
+com\phoenixhell\spingcloud\service\Impl\HystrixPaymentServiceImpl.class

@@ -1,0 +1,3 @@
+com\phoenixhell\springcloud\config\ApplicationContextConfig.class
+com\phoenixhell\springcloud\MainConsulOrder80.class
+com\phoenixhell\springcloud\Controller\ConsulOrderController.class

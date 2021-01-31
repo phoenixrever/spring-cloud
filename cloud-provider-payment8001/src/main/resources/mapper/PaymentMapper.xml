@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="PaymentMapper2020.1 这里配置了别名也会红 浪费我好多时间-_- -->
+<mapper namespace="com.phoenixhell.springcloud.mapper.PaymentMapper">
     <!--values是entities属性名 -->
     <insert id="create" parameterType="Payment" useGeneratedKeys="true" keyProperty="id">
         insert into payment(serial) values(#{serial})

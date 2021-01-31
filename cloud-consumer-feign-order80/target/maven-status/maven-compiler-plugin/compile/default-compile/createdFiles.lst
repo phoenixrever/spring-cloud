@@ -1,0 +1,4 @@
+com\phoenixhell\springcloud\controller\FeignOrderController.class
+com\phoenixhell\springcloud\config\LogConfig.class
+com\phoenixhell\springcloud\service\PaymentFeignService.class
+com\phoenixhell\springcloud\MainFeignOrder80.class

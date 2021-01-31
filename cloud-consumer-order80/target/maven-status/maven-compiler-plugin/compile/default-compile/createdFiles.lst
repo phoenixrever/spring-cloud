@@ -1,3 +1,4 @@
+com\phoenixhell\myrule\MySelfRule.class
 com\phoenixhell\springcloud\config\ApplicationContextConfig.class
 com\phoenixhell\springcloud\Controller\OrderController.class
 com\phoenixhell\springcloud\MainOrder80.class

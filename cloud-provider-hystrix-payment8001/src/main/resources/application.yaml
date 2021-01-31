@@ -1,0 +1,22 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: cloud-provider-hystrix-payment
+eureka:
+  client:
+    #将自己注册进Eureka 默认true
+    register-with-eureka: true
+    #是否从EurekaServer抓取已有的信息 默认为true，单节点无所谓，
+    #集群必须设置为true才能配合ribbon使用负载均衡
+    fetch-registry: true
+    service-url:
+      #必须是这个名字后面必须要加/Eureka
+      defaultZone: http://eureka7001.com:7001/eureka
+  instance:
+    instance-id: hystrix-payment8001    #服务名称
+    prefer-ip-address: true     #显示服务ip地址
+    #eureka客户端向服务端发送心跳的时间间隔单位为妙(默认30秒)
+#    lease-renewal-interval-in-seconds: 1
+    #eureka服务端在收到最后一次心跳后等待侍时间上限单位为妙(默认90超时将剔除服务)
+#    lease-expiration-duration-in-seconds: 2
