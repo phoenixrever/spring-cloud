@@ -58,7 +58,7 @@ public class PaymentController {
         }
     }
 
-    @GetMapping("/payment/{id}")
+    @GetMapping("/payment/get/{id}")
     public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id){
         Payment payment = paymentService.getPaymentById(id);
         if(payment!=null){
@@ -93,5 +93,10 @@ public class PaymentController {
         String s = discoveryClient.toString();
         map.put("s ",s );
         return map;
+    }
+
+    @GetMapping("/payment/lb")
+    public String getPaymentLB(){
+        return serverPort;
     }
 }

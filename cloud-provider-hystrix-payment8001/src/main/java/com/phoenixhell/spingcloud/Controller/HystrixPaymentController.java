@@ -29,4 +29,9 @@ public class HystrixPaymentController {
         String s = hystrixPaymentService.PaymentInfo_Timeout(id);
         return "端口:"+serverPort+"----"+s;
     }
+
+    @GetMapping("/hystrix/payment/circuit-breaker/{id}")
+    public String paymentCircuitBreaker(@PathVariable("id") Integer id) {
+        return hystrixPaymentService.paymentCircuitBreaker(id);
+    }
 }

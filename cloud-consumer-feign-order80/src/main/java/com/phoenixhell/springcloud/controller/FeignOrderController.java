@@ -18,7 +18,7 @@ public class FeignOrderController {
     @Resource
     private PaymentFeignService paymentFeignService;
 
-    @GetMapping("/feign/payment/{id}")
+    @GetMapping("/feign/payment/get/{id}")
     public CommonResult<Payment> getFeignPaymentById(@PathVariable("id")Long id){
         return paymentFeignService.getPaymentById(id);
     }

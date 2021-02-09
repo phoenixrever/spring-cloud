@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @author phoenixhell
  * @create 2021/1/28 0028-上午 8:58
@@ -48,7 +50,7 @@ public class PaymentController {
         }
     }
 
-    @GetMapping("/payment/{id}")
+    @GetMapping("/payment/get/{id}")
     public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id){
         Payment payment = paymentService.getPaymentById(id);
         if(payment!=null){
@@ -56,5 +58,10 @@ public class PaymentController {
         }else{
             return new CommonResult<>(404, "get fail ------port:"+serverPort,null);
         }
+    }
+
+    @GetMapping("/payment/lb")
+    public String getPaymentLB(){
+        return serverPort;
     }
 }

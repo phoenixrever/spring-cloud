@@ -8,4 +8,5 @@ package com.phoenixhell.spingcloud.service;
 public interface HystrixPaymentService {
     public String PaymentInfo_OK(Integer id);
     public String PaymentInfo_Timeout(Integer id);
+    String paymentCircuitBreaker(Integer id);
 }

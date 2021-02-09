@@ -13,7 +13,7 @@ import org.springframework.web.client.RestTemplate;
 public class ApplicationContextConfig {
 
     @Bean
-    @LoadBalanced  //赋予restTemplate开服务端口启负载均衡 端口交替出现
+//    @LoadBalanced  //赋予restTemplate开服务端口启负载均衡 端口交替出现
     public RestTemplate restTemplate(){
         return new RestTemplate();
     }

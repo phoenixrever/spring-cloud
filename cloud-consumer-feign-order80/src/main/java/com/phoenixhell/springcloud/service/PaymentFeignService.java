@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 @Service
 @FeignClient(value = "CLOUD-PAYMENT-SERVICE")
 public interface PaymentFeignService {
-    @GetMapping("/payment/{id}")
+    @GetMapping("/payment/get/{id}")
     public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id);
 
     //openfeign-ribbon 默认等待1秒钟 ymal里面设置时间
