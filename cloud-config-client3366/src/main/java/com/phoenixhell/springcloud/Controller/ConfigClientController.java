@@ -9,11 +9,15 @@ import org.springframework.web.bind.annotation.RestController;
 //启功 post请求刷新功能curl -X POST "http://localhost:3355/actuator/refresh"
 @RefreshScope
 public class ConfigClientController {
+    @Value("${server.port}")
+    private String serverPort;
+
     @Value("${config.info}")
     private String configInfo;
 
+
     @GetMapping("/configInfo")
     public String getConfigInfo(){
-        return configInfo;
+        return "serverPort:"+serverPort+"\t\n\n configInfo: "+configInfo;
     }
 }

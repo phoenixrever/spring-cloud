@@ -1,16 +1,15 @@
 server:
-  port: 3344
+  port: 3366
+
 spring:
   application:
-    name: cloud-config-center
+    name: clound-config-client
   cloud:
     config:
-      server:
-        git:
-          uri:  https://github.com/phoenixrever/spring-cloud.git
-          search-paths:
-            - springcloud-config
       label: master
+      name: application
+      profile: prod
+      uri: http://config-3344.com:3344
   #15672web管理界面端口  5672 mq服务端口
   rabbitmq:
     host: localhost
@@ -26,12 +25,12 @@ eureka:
       #必须是这个名字  server后面必须要加/Eureka
       defaultZone: http://eureka7001.com:7001/eureka
   instance:
-    instance-id: clound-config-server3344
+    instance-id: clound-config-client3366
     prefer-ip-address: true
 
-#暴漏bus刷新配置的端点
+#暴漏spring-actuator 所有endpoints
 management:
   endpoints:
     web:
       exposure:
-        include: "bus-refresh"
+        include: "*"
