@@ -24,11 +24,13 @@
         <module name="cloud-consumer-hystrix-dashboard9001" />
         <module name="cloud-consumer-feign-order80" />
         <module name="cloud-consumer-hystrix-feign-order80" />
+        <module name="cloud-config-client3355" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="cloud-api-commons" target="1.8" />
       <module name="cloud-config-center3344" target="1.8" />
+      <module name="cloud-config-client3355" target="1.8" />
       <module name="cloud-consul-order80" target="1.8" />
       <module name="cloud-consul-payment8006" target="1.8" />
       <module name="cloud-consumer-consul-order80" target="1.8" />
