@@ -1,0 +1,15 @@
+server:
+  port: 80
+spring:
+  application:
+    name: cloud-consumer-alibaba-order
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.1.100:1111
+#消费者将要去访问的微服务名称(注册成功进nacos的微服务提供者)
+#作用是在controller @Value("service-url.nacos-payment-service") 实现配置代码分离
+#另外一个方法 spring文档里面
+#loadBalancerClient.choose("cloud-provider-alibaba-payment");
+service-url:
+  nacos-payment-service: http://cloud-provider-alibaba-payment

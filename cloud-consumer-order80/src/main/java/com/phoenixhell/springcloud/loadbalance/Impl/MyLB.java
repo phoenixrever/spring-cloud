@@ -1,6 +1,5 @@
 package com.phoenixhell.springcloud.loadbalance.Impl;
 
-import com.netflix.loadbalancer.Server;
 import com.phoenixhell.springcloud.loadbalance.LoadBalancer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.client.ServiceInstance;
@@ -21,7 +20,7 @@ public class MyLB implements LoadBalancer {
             current = nextServerCyclicCounter.get();
             next = current >= Integer.MAX_VALUE ? 0 : current + 1;
         } while (!nextServerCyclicCounter.compareAndSet(current, next));
-        System.out.println("********next:" + next);
+//        System.out.println("********next:" + next);
         return next % serverCount;
     }
 

@@ -1,0 +1,34 @@
+server:
+  port: 84
+spring:
+  application:
+    name: cloud-consumer-nacos-order
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+        port: 8719  #默认8719，假如被占用了会自动从8719开始依次+1扫描。直至找到未被占用的端口
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+ribbon:
+  # 建立连接所用的时间,适用于网络状况正常的情况下,两端连接所用的时间
+  # 默认等待1秒钟
+  ReadTimeout: 3000
+  #指的是建立连接后从服务器读取到可用资源所需要的时间
+  ConnectTimeout: 1000
+  level:
+    #feign日志监控的接口 和级别
+    com.phoenixhell.springcloud.service.PaymentFeignService: debug
+#feign:
+#  hystrix:
+#    #如果处理自身的容错就开启。开启方式与生产端不一样。
+#    enabled: true  #开启全局降级fallback 断路器 circuit breaker
+feign:
+  sentinel:
+    enabled: true

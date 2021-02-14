@@ -67,12 +67,19 @@ public class OrderController {
         return entity;
     }
 
+    //使用自定义robbin的负载均衡
     @GetMapping("/consumer/payment/lb")
     public String getPaymentLB(){
         List<ServiceInstance> serviceInstances =
                 discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");
         ServiceInstance instances = loadBalancer.instances(serviceInstances);
-        System.out.println("main-"+instances);
+        System.out.println("****************"+instances.getUri());
         return restTemplate.getForObject(instances.getUri()+"/payment/lb",String.class);
+    }
+
+    @GetMapping("/consumer/payment/zipkin")
+    public String paymentZipKin(){
+        System.out.println(PAYMENT_URL+"/payment/zipkin");
+        return restTemplate.getForObject(PAYMENT_URL+"/payment/zipkin",String.class);
     }
 }

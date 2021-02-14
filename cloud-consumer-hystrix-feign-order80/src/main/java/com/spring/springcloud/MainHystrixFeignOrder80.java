@@ -10,6 +10,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableFeignClients
+//open-fegin 的自带fallback并不需要下面2个注解
 @EnableHystrix
 @EnableCircuitBreaker
 public class MainHystrixFeignOrder80 {
