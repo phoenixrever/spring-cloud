@@ -32,6 +32,9 @@
       <module fileurl="file://$PROJECT_DIR$/cloud-stream-rabbitmq-consumer8802/cloud-stream-rabbitmq-consumer8802.iml" filepath="$PROJECT_DIR$/cloud-stream-rabbitmq-consumer8802/cloud-stream-rabbitmq-consumer8802.iml" />
       <module fileurl="file://$PROJECT_DIR$/cloud-stream-rabbitmq-consumer8803/cloud-stream-rabbitmq-consumer8803.iml" filepath="$PROJECT_DIR$/cloud-stream-rabbitmq-consumer8803/cloud-stream-rabbitmq-consumer8803.iml" />
       <module fileurl="file://$PROJECT_DIR$/cloud-stream-rabbitmq-provider8801/cloud-stream-rabbitmq-provider8801.iml" filepath="$PROJECT_DIR$/cloud-stream-rabbitmq-provider8801/cloud-stream-rabbitmq-provider8801.iml" />
+      <module fileurl="file://$PROJECT_DIR$/seata-account-server2003/seata-account-server2003.iml" filepath="$PROJECT_DIR$/seata-account-server2003/seata-account-server2003.iml" />
+      <module fileurl="file://$PROJECT_DIR$/seata-order-server2001/seata-order-server2001.iml" filepath="$PROJECT_DIR$/seata-order-server2001/seata-order-server2001.iml" />
+      <module fileurl="file://$PROJECT_DIR$/seata-storage-server2002/seata-storage-server2002.iml" filepath="$PROJECT_DIR$/seata-storage-server2002/seata-storage-server2002.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/spring-cloud.iml" filepath="$PROJECT_DIR$/.idea/spring-cloud.iml" />
     </modules>
   </component>

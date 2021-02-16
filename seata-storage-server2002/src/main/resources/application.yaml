@@ -1,0 +1,54 @@
+server:
+  port: 2002
+
+spring:
+  application:
+    name: seata-storage-service
+  cloud:
+    alibaba:
+      seata:
+        #自定义事务组名称需要与seata-server中的对应
+        tx-service-group: tx_phoenixhell
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+  datasource:
+    url: jdbc:mysql://192.168.1.100/seata_storage?serverTimezone=UTC
+    username: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: 123456
+
+feign:
+  hystrix:
+    enabled: false
+
+logging:
+  level:
+    com:
+      example:
+        mapper: debug
+    io:
+      seata: info
+
+mybatis:
+  #  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    cacheEnabled: true
+    lazyLoadingEnabled: true
+    aggressiveLazyLoading: false
+#  <setting name="lazyLoadingEnabled" value="true"/>
+#  <setting name="multipleResultSetsEnabled" value="true"/>
+#  <setting name="useColumnLabel" value="true"/>
+#  <setting name="useGeneratedKeys" value="false"/>
+#  <setting name="autoMappingBehavior" value="PARTIAL"/>
+#  <setting name="autoMappingUnknownColumnBehavior" value="WARNING"/>
+#  <setting name="defaultExecutorType" value="SIMPLE"/>
+#  <setting name="defaultStatementTimeout" value="25"/>
+#  <setting name="defaultFetchSize" value="100"/>
+#  <setting name="safeRowBoundsEnabled" value="false"/>
+#  <setting name="mapUnderscoreToCamelCase" value="false"/>
+#  <setting name="localCacheScope" value="SESSION"/>
+#  <setting name="jdbcTypeForNull" value="OTHER"/>
+#  <setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString"/>
